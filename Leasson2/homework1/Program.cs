@@ -4,7 +4,7 @@
 // 918 -> 1
 
 Console.WriteLine("Введите трехзначное число");
-Double num = Convert.ToDouble(Console.ReadLine());
+int num = Convert.ToInt32(Console.ReadLine());
 if (num < 1000 && num >99){
     num = num % 100;
     int digit = Convert.ToInt32(num);
