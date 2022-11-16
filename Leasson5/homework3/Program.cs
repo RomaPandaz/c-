@@ -17,8 +17,8 @@ void PrintArray(double[] array) {
 }
 
 double SearchDifMaxMin(double[] array) {
-double max = array[0];
-double min = array[0];
+    double max = array[0];
+    double min = array[0];
     for (int i = 0; i < array.Length; i++){
         if (min > array[i]) {
             min = array[i];
@@ -27,12 +27,11 @@ double min = array[0];
             max = array[i];
         }
     }
-double result = max - min;
-Console.Write(result);
-return result;
+    double result = max - min;
+    return result;
 }
 
-// double result = 0;
+
 PrintArray(array);
-SearchDifMaxMin(array);
-// Console.Write(result);
+double PrintRes = SearchDifMaxMin(array);
+Console.Write(PrintRes);
