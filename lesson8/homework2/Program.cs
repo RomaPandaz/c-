@@ -5,11 +5,12 @@
 // 8 4 2 4
 // 5 2 6 7
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
-int getDigit (string msg) { 
-    Console.Write(msg); 
-    int digit = Convert.ToInt32(Console.ReadLine()); 
-    return digit; 
-} 
+
+// int getDigit (string msg) { 
+//     Console.Write(msg); 
+//     int digit = Convert.ToInt32(Console.ReadLine()); 
+//     return digit; 
+// } 
 
 int[,] MakeMartix (int row, int col) { 
     int[,] matrix = new int[row, col]; 
@@ -46,35 +47,36 @@ void PrintArray(int[] array) {
 }
 
 int GetSumRow(int[,] matrix) {
-    int sum = 0;
     int[] tempArray = MakeTempArray(matrix.GetLength(0)); //создание массива для сумм строк
+    int sum = 0;
     int count = 0; // счетчик адреса в массиве для записи суммы строки
     for (int j = 0; j <= matrix.GetLength(0)-1; j++) { // число проходов
         for (int i = 0; i <= matrix.GetLength(1)-1; i++) { //сумма по строке
                 sum = sum + matrix[j,i];
         }
         tempArray[count] = sum;
+
         count = count + 1;
         sum = 0;                //обнуление после перехода на новую строку 
     }
-    PrintArray(tempArray);
+    // PrintArray(tempArray);
+
+    int min = tempArray[0];
     int result = 0;
-    int q = 0;
-    if (tempArray[q]<tempArray[q+1])
-    {
-        result = q;
+    for (int i = 0; i <= tempArray.Length-1; i++) {
+    if (min >= tempArray[i]) {
+        min = tempArray[i];
+        result = i+1;
+        }
     }
-    else result = tempArray[q+1];
-    Console.WriteLine(result);
-    return result;
+Console.Write($"Строка: {result}");
+    return 0;
 }
-
-
 
 int x = 3; //getDigit("Задайте колличество строк массива: ");
 int y = 3; //getDigit("Задайте колличество столбцов массива: ");
-int sum = 0;
 int[,] temp2 = MakeMartix(x,y);
 PrintMatrix(temp2);
 GetSumRow(temp2);
-// Console.WriteLine(result);
+
+
